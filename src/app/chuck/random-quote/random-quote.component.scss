@@ -1,0 +1,50 @@
+@import 'variables';
+@import 'mixins';
+
+.random-quote {
+    .input-container {
+        width: calc(100% - 64px);
+        padding: 32px;
+        background-color: $input-container-bg-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        line-height: 20px;
+        color: $primary-text-color;
+        border-radius: 3px 3px 0 0;
+
+        &__fields {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            label {
+                margin-right: 12px;
+                font-weight: 500;
+            }
+
+            .name-input {
+                margin-right: 32px;
+
+                input {
+                    @include input;
+                    width: 274.5px;
+                }
+            }
+
+            .multiselect-dropdown {
+                width: 215px;
+            }
+        }
+
+        button {
+            width: 160px;
+        }
+    }
+
+    &__quote-container {
+        background-color: white;
+        padding: 52px 0;
+    }
+}

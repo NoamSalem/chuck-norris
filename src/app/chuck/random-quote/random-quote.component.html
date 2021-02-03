@@ -1,0 +1,19 @@
+<div class="random-quote">
+  <div class="input-container">
+    <div class="input-container__fields">
+      <div class="name-input">
+        <label for="name">Your name</label>
+        <input name="name" [(ngModel)]="name" placeholder="e.g. Chuck Norris">
+      </div>
+      <div>
+        <label for="category">Category</label>
+        <app-multi-select [options]="categories$ | async" (change)="setSelectedCategories($event)"
+          placeholder="Pick a category"></app-multi-select>
+      </div>
+    </div>
+    <button class="btn btn--active" (click)="getRandomQuote()" [disabled]="btnDisabled">GO!</button>
+  </div>
+  <div class="random-quote__quote-container" *ngIf="randomQuote$ | async as randomQuote">
+    <app-quote [quote]="randomQuote"></app-quote>
+  </div>
+</div>

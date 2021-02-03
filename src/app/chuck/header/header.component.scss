@@ -1,0 +1,30 @@
+.header {
+    position: relative;
+    height: 256px;
+    width: 1366px;
+    margin: auto;
+    margin-bottom: 228px;
+    background-image: url('/assets/header.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    &__logo {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+    }
+
+    .badge {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+
+        height: 326px;
+        width: 326px;
+        background-color: white;
+        border-radius: 100%;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.22);
+    }
+}

@@ -1,0 +1,63 @@
+@import 'variables';
+
+.table {
+    width: calc(100% - 64px);
+    padding: 18px 32px;
+    background-color: white;
+    font-size: 13px;
+    color: $primary-text-color;
+    font-weight: 500;
+    max-height: 600px;
+    overflow: auto;
+
+    &__header {
+        display: flex;
+        padding: 12px;
+        border-bottom: 1px solid $disabled-text-color;
+
+        &__sort {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        &__filter {
+            margin-left: 5px;
+            height: 12px;
+        }
+    }
+
+    &__row {
+        max-height: 44px;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+
+        &:hover {
+            background-color: table-row-bg-color-hover;
+        }
+
+        &__cells {
+            cursor: pointer;
+            display: flex;
+            border-bottom: 1px solid $disabled-text-color;
+            padding: 12px;
+            width: calc(100% - 24px);
+        }
+
+        &--expanded {
+            background-color: $table-row-bg-color-hover;
+            max-height: 1000px;
+        }
+
+        .quote {
+            margin-top: 50px;
+            padding: 54px 0;
+            margin: 0 -12px;
+            background-color: $table-quote-bg-color;
+        }
+    }
+
+    &__column {
+        display: flex;
+        justify-content: space-between;
+    }
+}

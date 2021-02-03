@@ -1,0 +1,27 @@
+<div class="table" *ngIf="sortedData?.length">
+
+  <div class="table__header">
+    <div *ngFor="let col of _columns" [style.width]="cellWidth" class="flex-center">
+      {{ col.name }}
+      <span class="table__header__sort" (click)="toggleSorting(col.field)" *ngIf="col.field == sortBy.field">
+        <span *ngIf="sortBy.sortOrder === sortOrder.desc; else asc">&#8595;</span>
+        <ng-template #asc>&#8593;</ng-template>
+      </span>
+      <img class="table__header__filter" src="assets/filter.svg">
+    </div>
+  </div>
+
+  <div class="table__row" [ngClass]="{'table__row--expanded':  expandedRow === data.id }"
+    *ngFor="let data of sortedData">
+    <div class="table__row__cells" (click)="expandRow(data.id)">
+      <div [style.width]="cellWidth" *ngFor="let col of _columns">
+        <span *ngIf="col.type === colType.text">{{ data[col.field] ? data[col.field] : 'N/A' }}</span>
+        <span *ngIf="col.type === colType.date">{{ data[col.field] | date: 'MMM d, y, h:mm a' }}</span>
+      </div>
+    </div>
+    <div class="quote" *ngIf="expandedRow === data.id">
+      <app-quote [quote]="data"></app-quote>
+    </div>
+  </div>
+
+</div>

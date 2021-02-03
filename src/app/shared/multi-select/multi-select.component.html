@@ -1,0 +1,15 @@
+<div class="multi-select">
+  <div class="overlay" *ngIf="isOpen" (click)="close()"></div>
+  <div class="selected-options" (click)="toggleOptions()">
+    <span class="selected-options__placeholder" *ngIf="!selectedOptions.length">{{ placeholder }}</span>
+    <span class="selected-options__text">{{ selectedOptions }}</span>
+    <span class="selected-options__caret">&#8249;</span>
+  </div>
+
+  <div class="options-container" *ngIf="isOpen">
+    <div class="option" *ngFor="let option of _options" (click)="toggleOption(option)">
+      <span class="checked"><span *ngIf="option.selected">&#10003;</span></span>
+      <span>{{ option.value }}</span>
+    </div>
+  </div>
+</div>

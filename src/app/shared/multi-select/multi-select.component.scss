@@ -1,0 +1,76 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+    display: inline-block;
+}
+
+.multi-select {
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+
+    .selected-options {
+        @include input;
+        height: 38px;
+        width: 201.5px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &__placeholder {
+            color: $disabled-text-color;
+        }
+
+        &__text {
+            max-width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &__caret {
+            position: absolute;
+            right: 12px;
+            top: 0;
+            font-size: 20px;
+            transform: translateY(50%) rotate(270deg);
+        }
+    }
+
+    .options-container {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        left: 0;
+        background-color: inherit;
+        max-height: 200px;
+        overflow-y: scroll;
+        border-radius: 0 0 3px 3px;
+        border: 1px solid $disabled-text-color;
+
+        .checked {
+            width: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+
+            &:hover {
+                background-color: darken($color: white, $amount: 4);
+            }
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        opacity: 0.5;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        cursor: default;
+    }
+}

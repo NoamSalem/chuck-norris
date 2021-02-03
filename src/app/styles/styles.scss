@@ -1,0 +1,44 @@
+@import '../../../node_modules/roboto-fontface/css/roboto/roboto-fontface.css';
+@import 'variables';
+
+body, html {
+    font-family: 'Roboto';
+    background-color: $main-bg-color;
+}
+
+.btn {
+    border-radius: 3px;
+    border: 1px solid $primary-color;
+    width: 120px;
+    height: 40px;
+    color: $primary-color;
+    background-color: $main-bg-color;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    &:hover {
+        background-color: darken($color: $main-bg-color, $amount: 4);
+    }
+
+    &--active {
+        background-color: $primary-color;
+        color: white;
+
+        &:hover {
+            background-color: darken($color: $primary-color, $amount: 4);
+        }
+    }
+
+
+    &:disabled {
+        background-color: $disabled-bg-color;
+        color: $disabled-text-color;
+        border-color: $disabled-bg-color;
+    }
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}

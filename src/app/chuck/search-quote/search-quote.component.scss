@@ -1,0 +1,31 @@
+@import 'mixins';
+@import 'variables';
+
+.search-quote {
+    &__input-container {
+        width: calc(100% - 64px);
+        padding: 32px;
+        background-color: $input-container-bg-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        line-height: 20px;
+        color: $primary-text-color;
+        border-radius: 3px 3px 0 0;
+
+        label {
+            margin-right: 12px;
+            font-weight: 500;
+        }
+
+        .search-input {
+            @include input;
+            width: 508.5px;
+        }
+
+        button {
+            width: 160px;
+        }
+    }
+}

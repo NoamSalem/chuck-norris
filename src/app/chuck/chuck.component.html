@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="main">
+  <div class="panel">
+    <ng-container *ngFor="let mode of modes">
+      <button [ngClass]="{'btn': true, 'btn--active': mode === activeMode}"
+        (click)="setMode(mode)">{{ mode | titlecase }}</button>
+    </ng-container>
+  </div>
+  <div class="content" [ngSwitch]="activeMode">
+    <app-search-quote *ngSwitchCase="mode.serach"></app-search-quote>
+    <app-random-quote *ngSwitchCase="mode.random"></app-random-quote>
+  </div>
+</div>

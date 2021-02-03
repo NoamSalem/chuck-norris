@@ -1,0 +1,16 @@
+<div class="search-quote">
+
+  <div class="search-quote__input-container">
+    <div>
+      <label for="search">Key word(s)</label>
+      <input class="search-input" name="search" [(ngModel)]="searchValue"
+        placeholder="e.g. egg, break, Chuck Norris, dumb">
+    </div>
+    <button class="btn btn--active" (click)="search()" [disabled]="btnDisabled">GO!</button>
+  </div>
+
+  <div class="search-quote__table">
+    <app-table [columns]="columns" [sortBy]="sortBy" [dataSource]="tableData$ | async"></app-table>
+  </div>
+
+</div>
